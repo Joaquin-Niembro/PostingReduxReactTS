@@ -8,7 +8,8 @@ interface AppProps {
 }
 function page({ post, onChange, createPostFetch }: AppProps) {
 	return (
-		<>
+		<div style={{margin: '1rem auto'}}>
+			<h2>Create a post</h2>
 			<input
 				type='text'
 				name='content'
@@ -16,7 +17,7 @@ function page({ post, onChange, createPostFetch }: AppProps) {
 				onChange={onChange}
 			/>
 			<button onClick={() => createPostFetch(post)}>Create</button>
-		</>
+		</div>
 	);
 }
 

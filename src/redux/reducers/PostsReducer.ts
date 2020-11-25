@@ -10,7 +10,16 @@ import {
 	DELETE_POST,
 	IdeletePostAction,
 } from '../action/Posts';
-type ActionType = IfetchPostsAction | IcreatePostAction | IdeletePostAction;
+import {
+	CREATE_COMMENT,
+	CREATE_COMMENT_FAILURE,
+	IcreateCommentAction,
+} from '../action/Comments';
+type ActionType =
+	| IfetchPostsAction
+	| IcreatePostAction
+	| IdeletePostAction
+	| IcreateCommentAction;
 
 export const postsReducer = (
 	state: Ipost[] = [],
@@ -29,6 +38,10 @@ export const postsReducer = (
 			return payload;
 		case DELETE_POST:
 			return state.filter((post: Ipost) => post.id !== payload);
+		case CREATE_COMMENT:
+			return state
+		case CREATE_COMMENT_FAILURE:
+			return payload;
 		default:
 			return state;
 	}
